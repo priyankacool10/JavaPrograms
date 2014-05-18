@@ -1,0 +1,1 @@
+After sending a message to server, server should send acknowledgement to client on receiving the message.

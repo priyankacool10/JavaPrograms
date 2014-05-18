@@ -1,0 +1,29 @@
+import java.util.Date;
+import java.util.Random;
+
+
+public class cons implements Runnable {
+	data obj;
+	Random rand;
+	public cons(data obj) {
+		rand = new Random(new Date().getTime());
+		this.obj = obj;
+	}
+	
+	public void run() {
+	
+		for ( int i = 0 ; i < 4 ; i++ ) {
+			int randVal = Math.abs(rand.nextInt()%10000);
+			try {
+				System.out.println("Sleeping for: "+randVal);
+				Thread.sleep(randVal);
+				int data = obj.getData();
+				System.out.println("ConsThread got: "+data);
+			}
+			catch(InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+}
